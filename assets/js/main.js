@@ -27,17 +27,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const lightboxImg = document.querySelector(".lightbox-img");
     const closeBtn = document.querySelector(".close-btn");
 
+    // Отваряне на изображение
     galleryItems.forEach((img) => {
         img.addEventListener("click", () => {
             lightbox.classList.remove("hidden");
-            lightboxImg.src = img.src;
+            lightboxImg.src = img.src; // Зареждане на изображението в lightbox
         });
     });
 
+    // Затваряне на lightbox
     closeBtn.addEventListener("click", () => {
         lightbox.classList.add("hidden");
     });
 
+    // Затваряне при клик извън изображението
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) {
             lightbox.classList.add("hidden");
