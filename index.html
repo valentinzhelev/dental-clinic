@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="home-section">
         <div class="top-header">
             <div class="container top-header-container">
                 <div class="work-time">
@@ -33,11 +33,12 @@
                 <img src="assets/images/footer-logo.png" class="header-logo" alt="Logo">
                 <nav class="navbar">
                     <ul class="nav-links">
-                        <li><a href="#home" class="active">НАЧАЛО</a></li>
-                        <li><a href="#mission">НАШАТА МИСИЯ <i class="fas fa-angle-down"></i></a></li>
-                        <li><a href="#services">УСЛУГИ <i class="fas fa-angle-down"></i></a></li>
-                        <li><a href="#team">ЕКИП <i class="fas fa-angle-down"></i></a></li>
-                        <li><a href="#contacts">КОНТАКТИ <i class="fas fa-angle-down"></i></a></li>
+                        <li><a href="#home-section" class="active">НАЧАЛО</a></li>
+                        <li><a href="#mission-section">НАШАТА МИСИЯ <i class="fas fa-angle-down"></i></a></li>
+                        <li><a href="#dental-services">УСЛУГИ <i class="fas fa-angle-down"></i></a></li>
+                        <li><a href="#team-section">ЕКИП <i class="fas fa-angle-down"></i></a></li>
+                        <li><a href="#gallery">ГАЛЕРИЯ <i class="fas fa-angle-down"></i></a></li>
+                        <li><a href="#contacts-section">КОНТАКТИ <i class="fas fa-angle-down"></i></a></li>
                     </ul>
                 </nav>
                 <div class="header-buttons">
@@ -67,7 +68,7 @@
                 </div>
             </div>
         </section>
-        <section class="full-width-section">
+        <section id="mission-section" class="full-width-section">
             <div class="mission-section">
                 <div class="mission-content">
                     <h2>Нашата Мисия</h2>
@@ -271,6 +272,34 @@
                 </div>
             </div>
         </section>
+        <section id="gallery" class="section">
+            <h2>Галерия</h2>
+            <div class="line"></div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/images/gallery1.jpg" alt="Снимка 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery2.jpg" alt="Снимка 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery3.jpg" alt="Снимка 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery4.jpg" alt="Снимка 4">
+                </div>
+
+                <!-- Hidden images -->
+                <div class="gallery-item hidden">
+                    <img src="assets/images/gallery5.jpg" alt="Снимка 5">
+                </div>
+                <div class="gallery-item hidden">
+                    <img src="assets/images/gallery6.jpg" alt="Снимка 6">
+                </div>
+                <!-- Add more hidden items as needed -->
+            </div>
+            <button id="show-more" class="btn">Покажи още</button>
+        </section>
         <section id="contacts-section">
             <div class="container">
                 <h2 class="section-title">Как да ни намерите</h2>
@@ -307,40 +336,6 @@
                         <p>Понеделник - Петък: 08:00 - 17:00</p>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section id="gallery">
-            <h2>Галерия</h2>
-            <div class="line"></div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="assets/images/gallery1.jpg" alt="Снимка 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery2.jpg" alt="Снимка 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery3.jpg" alt="Снимка 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/gallery4.jpg" alt="Снимка 4">
-                </div>
-
-                <!-- Hidden images -->
-                <div class="gallery-item hidden">
-                    <img src="assets/images/gallery5.jpg" alt="Снимка 5">
-                </div>
-                <div class="gallery-item hidden">
-                    <img src="assets/images/gallery6.jpg" alt="Снимка 6">
-                </div>
-                <!-- Add more hidden items as needed -->
-            </div>
-            <button id="show-more" class="btn">Покажи още</button>
-
-            <!-- Lightbox -->
-            <div id="lightbox" class="lightbox hidden">
-                <span class="close-btn">&times;</span>
-                <img class="lightbox-img" src="" alt="Lightbox Image">
             </div>
         </section>
     </main>
