@@ -15,49 +15,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const topHeader = document.querySelector(".top-header");
-    const mainHeader = document.querySelector(".main-header");
-    let lastScrollY = window.scrollY;
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryLinks = document.querySelectorAll('.gallery-link');
 
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > lastScrollY) {
-            topHeader.classList.add("hidden");
-            mainHeader.classList.add("scrolled");
-        } else {
-            topHeader.classList.remove("hidden");
-            mainHeader.classList.remove("scrolled");
-        }
-        lastScrollY = window.scrollY;
-    });
-});
-
-document.getElementById("show-more").addEventListener("click", function () {
-    const hiddenItems = document.querySelectorAll(".gallery-item.hidden");
-    hiddenItems.forEach(item => item.classList.remove("hidden"));
-    this.style.display = "none";
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const galleryItems = document.querySelectorAll(".gallery-item img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.querySelector(".lightbox-img");
-    const closeBtn = document.querySelector(".close-btn");
-
-    galleryItems.forEach((img) => {
-        img.addEventListener("click", () => {
-            lightbox.classList.remove("hidden");
-            lightboxImg.src = img.src;
+    galleryLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const imageUrl = this.getAttribute('href');
+            openLightbox(imageUrl);
         });
     });
 
-    closeBtn.addEventListener("click", () => {
-        lightbox.classList.add("hidden");
-    });
+    function openLightbox(imageUrl) {
+        const lightbox = document.createElement('div');
+        lightbox.classList.add('lightbox');
+        lightbox.innerHTML = `
+            <div class="lightbox-content">
+                <img src="${imageUrl}" alt="Gallery Image">
+                <span class="lightbox-close">&times;</span>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
 
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
-            lightbox.classList.add("hidden");
-        }
-    });
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+        closeBtn.addEventListener('click', function() {
+            document.body.removeChild(lightbox);
+        });
+
+        lightbox.addEventListener('click', function(event) {
+            if (event.target === lightbox) {
+                document.body.removeChild(lightbox);
+            }
+        });
+    }
 });

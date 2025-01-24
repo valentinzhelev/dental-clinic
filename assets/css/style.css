@@ -1147,6 +1147,29 @@ body {
     .hero-buttons {
         justify-content: center;
     }
+
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-buttons {
+        justify-content: center;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1166,6 +1189,23 @@ body {
     .contact-info {
         grid-template-columns: 1fr;
     }
+
+    .team-header h1 {
+        font-size: 2rem;
+    }
+
+    .team-description {
+        font-size: 0.9rem;
+    }
+
+    .team-card {
+        margin-bottom: 20px;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1180,5 +1220,38 @@ body {
     .footer-columns {
         flex-direction: column;
         align-items: center;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons a {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .service-card h3 {
+        font-size: 1rem;
+    }
+
+    .service-icon {
+        font-size: 3rem;
+    }
+
+    .team-info h3 {
+        font-size: 1rem;
+    }
+
+    .team-info p {
+        font-size: 0.8rem;
+    }
+
+    .contact-card h4 {
+        font-size: 1rem;
+    }
+
+    .contact-card p {
+        font-size: 0.9rem;
     }
 }
