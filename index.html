@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
-    <link rel="shortcut icon" href="images/icon1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/icon1.png" type="image/x-icon">
     <title>Стоматологичен Кабинет - Начало</title>
 </head>
 
@@ -30,7 +30,10 @@
         </div>
         <div class="main-header">
             <div class="container header-container">
-                <img src="assets/images/footer-logo.png" class="header-logo" alt="Logo">
+                <div class="logo-menu-container">
+                    <img src="assets/images/footer-logo.png" class="header-logo" alt="Logo">
+                    <button class="hamburger" onclick="toggleMenu()">☰</button>
+                </div>
                 <nav class="navbar">
                     <ul class="nav-links">
                         <li><a href="#home-section" class="active">НАЧАЛО</a></li>
@@ -45,6 +48,15 @@
                     <a href="#login" class="btn-header-login">
                         <i class="fas fa-user"></i> Вход за пациенти
                     </a>
+                </div>
+
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="#home-section">НАЧАЛО</a>
+                    <a href="#mission-section">НАШАТА МИСИЯ</a>
+                    <a href="#dental-services">УСЛУГИ</a>
+                    <a href="#team-section">ЕКИП</a>
+                    <a href="#gallery">ГАЛЕРИЯ</a>
+                    <a href="#contacts-section">КОНТАКТИ</a>
                 </div>
             </div>
         </div>
@@ -63,10 +75,11 @@
                     екип за здрави и <strong>красиви зъби</strong>.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#services" class="btn-primary">РАЗГЛЕДАЙТЕ УСЛУГИТЕ</a>
+                    <a href="#dental-services" class="btn-primary">РАЗГЛЕДАЙТЕ УСЛУГИТЕ</a>
                     <a href="#book" class="btn-primary pulse">ЗАПИШЕТЕ ЧАС</a>
                 </div>
             </div>
+            <div class="img-holder"><img class="hero-img" src="./assets/images/hero-image.png"></div>
         </section>
         <section id="mission-section" class="full-width-section">
             <div class="mission-section">
@@ -88,10 +101,10 @@
                             <li><i class="fas fa-chair"></i> Осигуряване на комфорт и професионализъм</li>
                         </ul>
                     </div>
-                    <a href="#contact" class="btn-primary">Свържете се с нас</a>
+                    <a href="#contacts-section" class="btn-primary">Свържете се с нас</a>
                 </div>
                 <div class="mission-image">
-                    <img src="/assets/images/our-mission3.png" alt="Доктор">
+                    <img src="assets/images/our-mission3.png" alt="Доктор">
                 </div>
                 <div class="image-fade"></div>
             </div>
@@ -150,14 +163,14 @@
                             <span>Имате въпроси или искате да запазите час за консултация?</span>
                             <p>Ние сме тук, за да помогнем.</p>
                         </div>
-                        <a href="#contacts" class="btn-footer">Свържете се с нас</a>
+                        <a href="#contacts-section" class="btn-primary">Свържете се с нас</a>
                     </div>
                 </div>
         </section>
         <section id="team-section">
             <div class="team-header">
                 <h1>Нашият екип</h1>
-                <div class="horizontal-line"></div>
+                <div class="divider"></div>
                 <p class="team-description">
                     Денталните центрове разполагат със специалисти в различни области на денталната и естетичната
                     медицина.
@@ -168,105 +181,51 @@
                 </p>
             </div>
             <div class="team-filters">
-                <input type="text" placeholder="Търсене..." class="search-input">
-                <select class="filter-select">
-                    <option value="all">Всички позиции</option>
-                    <option value="dentist">Дентални лекари</option>
-                    <option value="assistant">Асистенти</option>
-                </select>
-                <select class="filter-select">
-                    <option value="all">Всички локации</option>
-                    <option value="sofia">София</option>
-                    <option value="plovdiv">Пловдив</option>
-                </select>
+                <input type="text" placeholder="🔍 Търсене..." class="search-input" aria-label="Търсене">
+
+                <div class="custom-select">
+                    <select class="filter-select" id="position-filter">
+                        <option value="all">Всички позиции</option>
+                        <option value="dentist">Дентални лекари</option>
+                        <option value="assistant">Асистенти</option>
+                    </select>
+                </div>
+
+                <div class="custom-select">
+                    <select class="filter-select" id="location-filter">
+                        <option value="all">Всички локации</option>
+                        <option value="sofia">София</option>
+                        <option value="plovdiv">Пловдив</option>
+                    </select>
+                </div>
+
                 <button class="filter-button">Търсене</button>
             </div>
+
             <div class="team-grid">
                 <div class="team-card">
-                    <img src="assets/images/doctor1.jpg" alt="Д-р Ивайло Радев" class="team-image">
+                    <img src="assets/images/doctor1.jpg" alt="Д-р Иван Стамболиев" class="team-image">
                     <div class="team-info">
                         <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
-                        <p>Специалист орален и лицево-челюстен хирург</p>
+                        <h3>Иван Стамболиев</h3>
+                        <p>Специалист орален хирург</p>
                     </div>
                 </div>
+
                 <div class="team-card">
                     <img src="assets/images/doctor1.jpg" alt="Д-р Александър Партенов" class="team-image">
                     <div class="team-info">
                         <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
+                        <h3>Александър Партенов</h3>
                         <p>Специалист протетична дентална медицина</p>
                     </div>
                 </div>
+
                 <div class="team-card">
                     <img src="assets/images/doctor1.jpg" alt="Д-р Ангел Попов" class="team-image">
                     <div class="team-info">
                         <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
-                        <p>Специалист орален хирург</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="assets/images/doctor1.jpg" alt="Д-р Иван Стамболиев" class="team-image">
-                    <div class="team-info">
-                        <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
-                        <p>Специалист орален хирург</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="assets/images/doctor1.jpg" alt="Д-р Иван Стамболиев" class="team-image">
-                    <div class="team-info">
-                        <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
-                        <p>Специалист орален хирург</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="assets/images/doctor1.jpg" alt="Д-р Иван Стамболиев" class="team-image">
-                    <div class="team-info">
-                        <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
-                        <p>Специалист орален хирург</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="assets/images/doctor1.jpg" alt="Д-р Иван Стамболиев" class="team-image">
-                    <div class="team-info">
-                        <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
-                        <p>Специалист орален хирург</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="assets/images/doctor1.jpg" alt="Д-р Иван Стамболиев" class="team-image">
-                    <div class="team-info">
-                        <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
-                        <p>Специалист орален хирург</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="assets/images/doctor1.jpg" alt="Д-р Иван Стамболиев" class="team-image">
-                    <div class="team-info">
-                        <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
-                        <p>Специалист орален хирург</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="assets/images/doctor1.jpg" alt="Д-р Иван Стамболиев" class="team-image">
-                    <div class="team-info">
-                        <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
-                        <p>Специалист орален хирург</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <img src="assets/images/doctor1.jpg" alt="Д-р Иван Стамболиев" class="team-image">
-                    <div class="team-info">
-                        <span class="position-tag">ДЕНТАЛЕН ЛЕКАР</span>
-                        <h3>Име и фамилия</h3>
+                        <h3>Ангел Попов</h3>
                         <p>Специалист орален хирург</p>
                     </div>
                 </div>
@@ -274,7 +233,7 @@
         </section>
         <section id="gallery" class="section">
             <h2>Галерия</h2>
-            <div class="line"></div>
+            <div class="divider"></div>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="assets/images/gallery1.jpg" alt="Снимка 1">
@@ -289,21 +248,19 @@
                     <img src="assets/images/gallery4.jpg" alt="Снимка 4">
                 </div>
 
-                <!-- Hidden images -->
                 <div class="gallery-item hidden">
                     <img src="assets/images/gallery5.jpg" alt="Снимка 5">
                 </div>
                 <div class="gallery-item hidden">
                     <img src="assets/images/gallery6.jpg" alt="Снимка 6">
                 </div>
-                <!-- Add more hidden items as needed -->
             </div>
             <button id="show-more" class="btn">Покажи още</button>
         </section>
         <section id="contacts-section">
             <div class="container">
                 <h2 class="section-title">Как да ни намерите</h2>
-                <div class="horizontal-line"></div>
+                <div class="divider"></div>
                 <p class="section-subtitle">
                     Ние сме тук, за да осигурим качествена грижа за вашата усмивка. Можете да се свържете с нас по
                     телефон, имейл или да посетите нашия офис. Очакваме Ви!
@@ -389,10 +346,12 @@
                     <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
                     <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
-                <p>&copy; 2025 Арикт | <a href="#">Общи условия</a> | <a href="#">Политика за поверителност</a> | <a href="#">Политика за бисквитки</a></p>
+                <p>&copy; 2025 Арикт | <a href="#">Общи условия</a> | <a href="#">Политика за поверителност</a> | <a
+                        href="#">Политика за бисквитки</a></p>
             </div>
         </div>
-    </footer>    
+    </footer>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>

@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links li a');
 
-    // Set "Home" as active by default
     navLinks[0].classList.add('active');
 
     window.addEventListener('scroll', function() {
@@ -95,10 +94,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.add('active');
             }
         });
-
-        // If no section is in view, set "Home" as active
+    
         if (!current) {
             navLinks[0].classList.add('active');
         }
     });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".hamburger");
+    const mobileMenu = document.querySelector("#mobileMenu");
+
+    if (menuButton && mobileMenu) {
+        menuButton.addEventListener("click", function () {
+            mobileMenu.classList.toggle("active");
+            document.body.classList.toggle("menu-open");
+        });
+    }
 });
