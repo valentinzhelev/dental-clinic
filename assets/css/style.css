@@ -190,12 +190,12 @@ body {
     padding: 0 calc((100vw - 1200px) / 2);
     color: #333333;
     overflow: hidden;
-    background: rgb(255,255,255);
-    background: rgb(255,255,255);
-    background: -moz-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(197,197,197,1) 67%, rgba(139,139,139,1) 100%);
-    background: -webkit-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(197,197,197,1) 67%, rgba(139,139,139,1) 100%);
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(197,197,197,1) 67%, rgba(139,139,139,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#8b8b8b",GradientType=1);
+    background: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
+    background: -moz-radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(197, 197, 197, 1) 67%, rgba(139, 139, 139, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(197, 197, 197, 1) 67%, rgba(139, 139, 139, 1) 100%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(197, 197, 197, 1) 67%, rgba(139, 139, 139, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#8b8b8b", GradientType=1);
 }
 
 .hero-content {
@@ -1034,7 +1034,7 @@ a.btn-primary:hover {
 .gallery-item {
     flex: 1 1 calc(25% - 15px);
     max-width: calc(25% - 15px);
-    box-sizing: border-box;
+    cursor: pointer;
 }
 
 .gallery-item img {
@@ -1087,21 +1087,20 @@ a.btn-primary:hover {
     z-index: 1000;
 }
 
-.lightbox-content {
-    position: relative;
+.lightbox.hidden {
+    display: none;
 }
 
-.lightbox-content img {
+.lightbox img {
     max-width: 90%;
     max-height: 90%;
+    border-radius: 10px;
 }
 
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 2rem;
     color: #fff;
     cursor: pointer;
@@ -1109,9 +1108,9 @@ a.btn-primary:hover {
 }
 
 .lightbox-close {
-    top: 10px;
-    right: 10px;
-    transform: none;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5rem;
 }
 
 .lightbox-prev {
@@ -1141,17 +1140,23 @@ a.btn-primary:hover {
 .hamburger {
     display: none !important;
 }
-
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 15px);
+    }
+}
 @media (max-width: 692px) {
     body {
         margin: 0;
         padding: 0;
         overflow-x: hidden;
     }
+
     .header-container {
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
     }
+
     .hero {
         display: flex;
         flex-direction: column;
@@ -1214,15 +1219,18 @@ a.btn-primary:hover {
         padding: 0;
         overflow-x: hidden;
     }
+
     .header-container {
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
     }
+
     .hero {
         height: 100vh;
         padding: 0;
         margin: 0;
     }
+
     .hero h1 {
         font-size: 32px;
     }
@@ -1235,6 +1243,7 @@ a.btn-primary:hover {
         font-size: 14px;
         padding: 10px 20px;
     }
+
     .header-container {
         display: flex;
         align-items: center;
@@ -1253,6 +1262,7 @@ a.btn-primary:hover {
     .navbar {
         flex-grow: 1;
         display: flex;
+        gap: 15px;
         justify-content: center;
         align-items: center;
     }
@@ -1267,8 +1277,18 @@ a.btn-primary:hover {
     .nav-links li a {
         font-size: 13px;
         padding: 5px 6px;
-        display: flex;
+        display: inline-block;
         align-items: center;
+    }
+
+    .nav-links li a.active:after {
+        width: 100%;
+        height: 2px;
+        background-color: #3a78a7;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
     }
 
     .header-buttons {
@@ -1292,6 +1312,39 @@ a.btn-primary:hover {
 }
 
 @media (max-width: 954px) {
+    .mission-section {
+        max-width: 100%;
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .mission-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .mission-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .mission-content p {
+        font-size: 1rem;
+    }
+
+    .mission-image img {
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+    }
+
+    .mission-content a.btn-primary {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
     .header-container {
         display: flex;
         align-items: center;
@@ -1377,6 +1430,53 @@ a.btn-primary:hover {
 }
 
 @media (max-width: 770px) {
+
+
+    .mission-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 5vw;
+        max-width: 95vw;
+    }
+
+    .mission-content {
+        max-width: 700px;
+        width: 100%;
+    }
+
+    .mission-content h2 {
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+    }
+
+    .mission-content .divider {
+        width: 120px;
+        height: 4px;
+        background-color: #3a78a7;
+        margin: 0 auto 20px;
+    }
+
+    .mission-content p {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .mission-content ul {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .mission-content ul li {
+        font-size: 1.2rem;
+    }
+
+    .mission-image {
+        display: none;
+    }
     .top-header {
         display: none !important;
         position: absolute;
@@ -1398,3 +1498,69 @@ a.btn-primary:hover {
     }
 }
 
+@media (max-width: 1225px) {
+    .hero-content {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 712px) {
+    .hero-buttons {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .hero-buttons a {
+        font-size: 12px;
+        padding: 8px 15px;
+        flex: 1;
+        min-width: 130px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 615px) {
+    .search-bar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .search-bar,
+    .category-dropdown,
+    .btn-search {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .btn-search {
+        text-align: center;
+    }
+
+    .team-filters {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .team-filters input,
+    .team-filters select,
+    .team-filters button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .team-filters .custom-select {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .filter-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
